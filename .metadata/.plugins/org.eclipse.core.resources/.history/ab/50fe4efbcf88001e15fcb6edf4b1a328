@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tyhmeleaf.org">
+
+<head>
+	<meta charset="EUC-KR">
+	<title>ProductList</title>
+</head>
+
+<body>
+	<h1 ht:text="${message}"></h1>
+</body>
+
+</html>

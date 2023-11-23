@@ -1,0 +1,15 @@
+package com.kh.springdb.model;
+
+public class Board {
+
+	private int board_id;
+	private String title;
+	private String content;
+	private String author;
+	
+	public Board() {
+		super();
+	}
+	
+	
+}

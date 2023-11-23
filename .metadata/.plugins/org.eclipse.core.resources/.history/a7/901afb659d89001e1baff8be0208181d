@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf">
+<head>
+<meta charset="EUC-KR">
+<title>유저 정보 조회</title>
+</head>
+<body>
+
+</body>
+</html>

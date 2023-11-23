@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="EUC-KR">
+	<title>boardList</title>
+</head>
+
+<body>
+<!--Thymeleaf를 사용하여 상품 목록을 출력 -->
+	<h1 th:each="board : ${boards}"></h1>
+	<table>
+		<thead>
+			<tr>
+				<th>보드 번호</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>작가</th>
+			</tr>			
+		</thead>
+		<tbody>
+			<!--ThymeLeaf를 활용해서 상품 목록을 출력할 것 
+			-->
+			<tr th:each="boardㄴ: ${board}">
+				<td th:text="${board.board_id}"></td>
+				<td th:text="${board.title}"></td>
+				<td th:text="${board.content}"></td>
+				<td th:text="${board.author}"></td>
+				
+			</tr>			
+		</tbody>
+	</table>
+</body>
+
+</html>

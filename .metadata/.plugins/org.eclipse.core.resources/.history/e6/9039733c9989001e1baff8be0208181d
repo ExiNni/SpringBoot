@@ -1,0 +1,15 @@
+package com.kh.springdb.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.kh.springdb.mapper.UserMapper;
+
+@Service
+public class UserService {
+
+	@Autowired
+	private UserMapper userMapper;
+	
+	// 전체 회원 조회 가져오기
+}

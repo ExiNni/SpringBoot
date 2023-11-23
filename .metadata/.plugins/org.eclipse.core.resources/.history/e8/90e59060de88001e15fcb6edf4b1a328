@@ -1,0 +1,7 @@
+package com.kh.springdb.repository;
+
+import com.kh.springdb.model.Product;
+
+public interface ProductRepository{ //extends JpaRepository<Product, Long>{
+
+}

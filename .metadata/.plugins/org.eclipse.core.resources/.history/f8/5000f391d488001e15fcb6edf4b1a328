@@ -1,0 +1,7 @@
+package com.kh.springdb.service;
+
+@Serivce
+public class ProductService {
+
+	
+}

@@ -1,0 +1,11 @@
+package com.kh.springdb.mapper;
+
+import java.util.List;
+
+import com.kh.springdb.model.User;
+
+public interface UserMapper {
+	List<User> getAllUsers();
+	
+	User getUserById(int id);
+}
