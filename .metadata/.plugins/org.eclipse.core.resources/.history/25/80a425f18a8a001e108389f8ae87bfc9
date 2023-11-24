@@ -1,0 +1,22 @@
+package com.kh.springdb.service;
+
+import org.springframework.stereotype.Service;
+
+import com.kh.springdb.mapper.LoginMapper;
+import com.kh.springdb.model.User;
+
+@Service
+// LoginService : 스프링에서 사용자한테 필요한 메서드를 제공하는 서비스 역할을 하고 있음
+public class LoginService {
+	
+	// DB가 담긴 loginMapper를 사용하기 위해 선언해준 것
+	private LoginMapper loginMapper;
+	
+	public LoginService(LoginMapper loginMapper) {
+		this.loginMapper = loginMapper;
+	}
+	
+	public User login(String mname, String memail) {
+		return loginMapper.loginByMnameAndMemail(mname, memail);
+	}
+}

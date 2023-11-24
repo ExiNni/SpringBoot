@@ -1,0 +1,20 @@
+package com.kh.springdb.service;
+
+import org.springframework.stereotype.Service;
+
+import com.kh.springdb.mapper.LoginMapper;
+import com.kh.springdb.model.User;
+
+@Service
+public class LoginService {
+	
+	private LoginMapper loginMapper;
+	
+	public LoginService(LoginMapper loginMapper) {
+		this.loginMapper = loginMapper;
+	}
+	
+	public User login(String mname, String memail) {
+		
+	}
+}

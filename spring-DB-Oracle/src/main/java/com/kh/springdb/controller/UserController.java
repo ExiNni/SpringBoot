@@ -60,12 +60,6 @@ public class UserController {
 		return "login";
 	}
 	
-	@PostMapping("/loginSuccess")
-	public String loginUser(@PathVariable int id, String name, Model model) {
-		User user = userService.loginUser(id, name);
-		model.addAttribute("user", user);
-		return "loginSuccess";
-	}
 }
 
 /*

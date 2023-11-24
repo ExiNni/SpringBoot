@@ -28,8 +28,4 @@ public class UserService {
 		userMapper.insertUser(user);
 	}
 	
-	public User loginUser(int id, String name) {
-		return userMapper.loginUser(id, name);
-	}
-	
 }

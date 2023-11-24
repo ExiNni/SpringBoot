@@ -1,0 +1,17 @@
+package com.kh.springdb.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.kh.springdb.service.LoginService;
+
+@Controller
+@RequestMapping("/user")
+public class LoginController {
+	
+	private LoginService loginService;
+	
+	public LoginController() {
+		
+	}
+}

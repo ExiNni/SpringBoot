@@ -16,5 +16,4 @@ public interface UserMapper {
 	
 	void insertUser(User user);
 	
-	User loginUser(int id, String name);
 }

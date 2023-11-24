@@ -6,6 +6,13 @@
 </head>
 <body>
 	404 error page
-	<a href="http://localhost:8080/"><button>돌아가기</button></a>
+	<a th:href="@{/}"><button>돌아가기</button></a>
+	
 </body>
 </html>
+
+<!-- 
+	기본적으로 localhost8080/
+	기본 경로는 / 이기 때문에
+	@{/} = localhost8080/ 동일한 위치를 가짐
+-->
