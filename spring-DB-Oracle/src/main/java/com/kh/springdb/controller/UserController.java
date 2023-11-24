@@ -5,8 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.kh.springdb.model.User;
 import com.kh.springdb.service.UserService;
@@ -31,11 +35,37 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "user-info";
 	}
+	@GetMapping("/register")
+	public String registerUser(Model model) {
+		model.addAttribute("user", new User());
+		return "register";
+	}
+	
+	@PostMapping("/api/user/register")
+	public String registerMember(@ModelAttribute("user") @Validated User user, BindingResult result) {
+		userService.registerUser(user);
+		// 유저가 회원가입을 성공할 경우 이동하는 경로
+		return "redirect:/register?success";
+	}
 }
 
-
 /*
- * @PathVariable: 경로에 대한 변수를 메서드의 매개변수로 받을 때 사용
  * 사용법: @PathVariable int id
- * {id}
+ * 		{id}
+ * 
+ * @ModelAttribute("값")
+ * Thymeleaf 뷰에서 설정한 값의 이름을 사용해서 모델 속성에 덱서스 할 수 있음
+ * 엑서스(access): 컴퓨터 데이터 도는 리소스를 어떤 방식으로든 사용할 수 있도록 권한을 주거나 권한이 담겨진 것을 의미
+ * 
+ * 
+ * @ModelAttribute("user"): user라는 이름으로 Model User 객체를 추가한 것
+ * 
+ * @Validated: 데이터 유효성 검사를 실시하도록 행하는 것
+ * 
+ * @Validated(user): User객체에 대한 데이터 유효성 검사를 실시하겠다 한 것
+ * 
+ * BindingResult: @Validated에서 실시한 유효성 검사 결과를 저장하는 객체
+ * 				  유효성 검사에서 발생한 오류에 대한 정보가 담기는 공간
+ * 
  */
+ 

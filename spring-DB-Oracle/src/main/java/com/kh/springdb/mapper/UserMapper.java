@@ -13,4 +13,6 @@ public interface UserMapper {
 	
 	// 유저 한 명 조회
 	User getUserById(int id);
+	
+	void insertUser(User user);
 }

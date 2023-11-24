@@ -11,4 +11,11 @@
 	<select id="getUserById" parameterType="int" resultType="com.kh.springdb.model.User">
 		SELECT * FROM MEMBERINFO WHERE MNO = #{id}
 	</select>	
+	
+	<!-- 회원가입 하기 위한 insert 구문 -->
+	
+	<insert id="insertUser" parameterType="com.kh.springdb.model.User">
+			INSERT INTO MEMBERINFO (MNO, MNAME, MEMAIL, MBIRTH)
+			VALUES(#{mno}, #{mname}, #{memail}, #{mBirth})
+	</insert>
 </mapper>
