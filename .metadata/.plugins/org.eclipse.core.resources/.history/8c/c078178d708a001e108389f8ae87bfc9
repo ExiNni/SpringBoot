@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>로그인</title>
+</head>
+<body>
+	<!--
+		login mname 로그인하기
+		session x 로그인을 넘겨주는 것 까지만 진행
+		-->
+	<form th:action="@{/login}" method="post" th:object="${loginForm}">
+		<label form="mno">MNO: </label>
+		<input type="text" id="mno" name="mno"><br>
+		
+		<label form="mname">NAME: </label>
+		<input type="text" id="mname" name="mname"><br>
+		
+		<input type="submit">
+		
+		<a href="http://localhost:8080/"><button>돌아가기</button></a><br>
+	</form>
+</body>
+</html>

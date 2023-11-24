@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>로그인</title>
+</head>
+<body>
+	<!--
+		login mname 로그인하기
+		session x 로그인을 넘겨주는 것 까지만 진행
+		-->
+	<form th:action="@{/login}" method="post" th:object="${loginForm}">
+		<label form="mno">ID: </label>
+		<input type="text" id="ID" name="ID">
+		
+		<label form="PW">PASSWORD: </label>
+		<input type="password" id="PW" name="PW">
+		
+		
+	</form>
+</body>
+</html>

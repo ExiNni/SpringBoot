@@ -43,9 +43,28 @@ public class UserController {
 	
 	@PostMapping("/api/user/register")
 	public String registerMember(@ModelAttribute("user") @Validated User user, BindingResult result) {
-		userService.registerUser(user);
-		// 유저가 회원가입을 성공할 경우 이동하는 경로
-		return "redirect:/register?success";
+	    userService.registerUser(user);
+		//유저가 회원가입을 성공할 경우 이동하는 경로
+	    return "redirect:/success";
+	}
+	
+	@GetMapping("/success")
+	public String registerSuccess(Model model) {
+		model.addAttribute("user", new User());
+		return "success";
+	}
+	
+	@GetMapping("/login")
+	public String registerLogin(Model model) {
+		model.addAttribute("user", new User());
+		return "login";
+	}
+	
+	@PostMapping("/loginSuccess")
+	public String loginUser(@PathVariable int id, String name, Model model) {
+		User user = userService.loginUser(id, name);
+		model.addAttribute("user", user);
+		return "loginSuccess";
 	}
 }
 

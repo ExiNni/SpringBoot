@@ -16,6 +16,10 @@
 	
 	<insert id="insertUser" parameterType="com.kh.springdb.model.User">
 			INSERT INTO MEMBERINFO (MNO, MNAME, MEMAIL, MBIRTH)
-			VALUES(#{mno}, #{mname}, #{memail}, #{mBirth})
+			VALUES(#{mno}, #{mname}, #{memail}, #{mbirth})
 	</insert>
+	
+	<select id="loginUser" parameterType="String" resultType="com.kh.springdb.model.User">
+		SELECT * FROM MEMBERINFO WHERE MNO = #{id} AND MNAME = #{name}
+	</select>
 </mapper>
