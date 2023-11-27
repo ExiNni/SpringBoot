@@ -13,6 +13,8 @@
 				<th>name</th>
 				<th>email</th>
 				<th>birth</th>
+				<th>수정하기</th>
+				<th>삭제하기</th>
 			</tr>
 		</thread>
 		<tbody>
@@ -20,7 +22,9 @@
 				<td th:text="${user.mno}"></td>
 				<td th:text="${user.mname}"></td>
 				<td th:text="${user.memail}"></td>
-				<td th:text="${user.mBirth}"></td>
+				<td th:text="${user.mbirth}"></td>
+				<td><a th:href="@{'/user-update/' + ${user.mno}}"><button>수정하기</button></a></td>
+				<td><a th:href="@{'/user-delete/' + ${user.mno}}"><button>삭제하기</button></a></td>
 			</tr>
 		</tbody>
 	</table>

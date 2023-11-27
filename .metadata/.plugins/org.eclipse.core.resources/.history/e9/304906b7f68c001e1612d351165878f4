@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="EUC-KR">
+		<title>게시물 상세보기</title>
+	</head>
+	
+	<body>
+		<table border="1">
+			<tr>
+				<td>아이디</td>
+				<td th:text="${bpard.board_id}"></td>
+			</tr>
+			<tr>
+				<td>제목</td>
+				<td th:text="${board.title}"></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td></td>				
+			</tr>
+		</table>
+	</body>
+
+</html>

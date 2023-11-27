@@ -8,4 +8,9 @@
 		resultType="com.kh.springdb.model.Board">
 		SELECT * FROM BOARD
 	</select>
+	
+	<insert id="insertBoard" parameterType="com.kh.springdb.model.Board">
+		INSERT INTO BOARD (BOARD_ID, TITLE, CONTENT, AUTHOR)
+			VALUES(#{board_id}, #{title}, #{content}, #{author})
+	</insert>
 </mapper>

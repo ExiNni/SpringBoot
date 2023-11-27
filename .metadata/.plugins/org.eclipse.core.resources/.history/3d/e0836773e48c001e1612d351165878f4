@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="EUC-KR">
+	<title>Homepage</title>
+</head>
+
+<body>
+	<h1>mainPage</h1>
+	<a href="register"><button>회원가입</button></a>
+	<a href="/user/login"><button>로그인</button></a>
+	<a href="/user/login"><button>게시물 목록</button></a>
+</body>
+
+</html>

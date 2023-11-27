@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="EUC-KR">
+		<title>게시글 작성하기</title>
+	</head>
+	
+	<body>
+	
+	</body>
+
+</html>

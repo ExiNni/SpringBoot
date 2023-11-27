@@ -9,4 +9,6 @@ import com.kh.springdb.model.Board;
 @Mapper
 public interface BoardMapper {
 	List<Board> getAllBoard();
+	
+	void insertBoard(Board board);
 }

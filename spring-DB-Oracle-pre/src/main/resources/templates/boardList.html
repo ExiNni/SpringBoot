@@ -4,6 +4,13 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>boardList</title>
+	
+	<style>
+		th, td{
+			border: 1PX solid;
+		}
+		
+	</style>
 </head>
 
 <body>
@@ -15,6 +22,8 @@
 				<th>제목</th>
 				<th>내용</th>
 				<th>작가</th>
+				<th>수정하기</th>
+				<th>삭제하기</th>
 			</tr>			
 		</thead>
 		<tbody>
@@ -25,6 +34,8 @@
 				<td th:text="${board.title}"></td>
 				<td th:text="${board.content}"></td>
 				<td th:text="${board.author}"></td>
+				<td><a href=""><button>수정하기</button></a></td>
+				<td><a href=""><button>삭제하기</button></a></td>
 				
 			</tr>			
 		</tbody>

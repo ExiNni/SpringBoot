@@ -17,4 +17,8 @@ public class BoardService {
 		return boardMapper.getAllBoard();
 		
 	}
+	
+	public void insertBoard(Board board) {
+		boardMapper.insertBoard(board);
+	}
 }

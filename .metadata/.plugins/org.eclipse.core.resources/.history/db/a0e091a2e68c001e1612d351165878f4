@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="EUC-KR">
+		<title>게시글 작성하기</title>
+		<link href="/css/styles.css" rel="stylesheet">	
+	</head>
+	
+	<body>
+		<h2>게시글 작성하기</h2>
+		<form action="">
+						
+		</form>
+	</body>
+
+</html>

@@ -28,4 +28,14 @@ public class UserService {
 		userMapper.insertUser(user);
 	}
 	
+	// 회원의 정보 수정해서 DB에 저장하기
+	public void updateUser(User user) {
+		userMapper.updateUser(user);
+	}
+	
+	// 회원의 정보 삭제하기
+	public void deleteUser(int mno) {
+		userMapper.deleteUser(mno);
+	}
+	
 }
