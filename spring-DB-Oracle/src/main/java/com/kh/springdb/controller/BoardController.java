@@ -73,6 +73,13 @@ public class BoardController {
 		boardService.deleteBoard(board_id);
 		return "redirect:/boards";
 	}
+	
+	// 게시글 모두 삭제
+	@GetMapping("/delete-all-boards")
+	public String deleteAllBoards() {
+		boardService.deleteAllBoards();
+		return "redirect:/boards";
+	}
 }
 
 /*
