@@ -90,7 +90,7 @@ public class ProductController {
  	예외값을 처리하는 방법: orElse를 이용해서 대체값을 제공하거나 페이지 이동 처리를 할 수 있음
  	이외에 orElseGet - 대체값을 생성하는 함수를 제공 / orElseThrow - 예외를 던짐
  	
- 	ifPresent: Optional 객체 안에 값이 존재할 경우 실행할 것임
+ 	ifPresent: Optional 객체 안에 값이 존재할 경우 람다식 표현을 실행하기 위한 메서드
  			   value 값이 존재하면 모델에 product 변수명을 사용해서 product안에 value 값을 추가할 것
  			   추가된 product는 html 템플릿 안에서 product를 thymeleaf를 통해 호출해서 value값을 사용할 수 있음
  			   

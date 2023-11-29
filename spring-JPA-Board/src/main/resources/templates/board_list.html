@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="EUC-KR">
+		<title>Board List</title>
+		<script th:inline="javascript">
+			function checkDelete(){
+				var checkDelete = confirm("게시물을 모두 삭제하시겠습니까?");
+				if(checkDelete){
+					window.location.href="/board/delete/all";
+				} else{
+					alert("게시물 삭제를 취소했습니다");
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h2>Board List</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Board ID </th>
+					<th>Title </th>
+					<th>Content </th>
+					<th>Author </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="b : ${board}">
+					<td th:text="${b.board_id}"></td>
+					<td th:text="${b.title}"></td>
+					<td th:text="${b.content}"></td>
+					<td th:text="${b.author}"></td>
+					<td><a th:href="@{/board/detail/{id}(id=${b.board_id})}">상세보기</a></td>
+					<td><a th:href="@{/board/update/{id}(id=${b.board_id})}">수정하기</a></td>
+					<td><a th:href="@{/board/delete/{id}(id=${b.board_id})}">삭제하기</a></td>
+
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/board/new}">추가하기</a>
+		<!--<a th:href="@{/board/delete/all}">전체 삭제</a>-->
+		<a href="#" th:onclick="checkDelete()">전체 삭제</a>
+
+	</body>
+
+</html>

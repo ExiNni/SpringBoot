@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="EUC-KR">
+		<title>Board Form</title>
+	</head>
+	
+	<body>
+		<form th:action="@{/board/save}" th:object="${board}" method="post">
+			<input type="hidden" th:field="*{board_id}"/>
+			
+			<label>Title</label>
+			<input type="text" th:field="*{title}"/><br>
+			
+			<label>Content</label>
+			<input type="text" th:field="*{content}"/><br>
+			
+			<label>Author</label>
+			<input type="text" th:field="*{author}"/><br>
+			<button type="submit">Save Board</button>
+		</form>
+		<a href="@{/board}">돌아가기</a>
+	</body>
+
+</html>

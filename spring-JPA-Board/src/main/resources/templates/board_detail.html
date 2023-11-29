@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="EUC-KR">
+		<title>Board Detail</title>
+	</head>
+	
+	<body>
+		<h2>Board Detail</h2>
+		<table border="1">
+			<tr>
+				<th>Board ID</th>
+				<th>Title</th>
+				<th>Category</th>
+				<th>Author</th>
+			</tr>			
+			<tr th:if"${board != null}">
+				<td th:text="${board.board_id}"></td>
+				<td th:text="${board.title}"></td>
+				<td th:text="${board.content}"></td>
+				<td th:text="${board.author}"></td>
+			</tr>
+		</table>
+	</body>
+
+</html>

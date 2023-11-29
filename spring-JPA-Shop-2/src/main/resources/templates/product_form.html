@@ -8,8 +8,8 @@
 	
 	<body>
 		<h2>제품 추가 폼 작성</h2>
-		<form th:action="" th:object="" method="post">
-			<input type="hidden" th:field="*{id}"/>
+		<form th:action="@{/products/save}" th:object="${product}" method="post">
+			<input type="hidden" th:field="*{product_id}"/>
 			
 			<label>ID: </label>
 			<input th:text="${product.product_id}"/>
