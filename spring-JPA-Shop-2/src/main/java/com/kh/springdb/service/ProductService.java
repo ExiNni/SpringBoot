@@ -32,12 +32,14 @@ public class ProductService {
 		return productRepository.findById(id);
 	}
 	// 저장하는 메서드
+	// 최초로 작성한 내용 저장
+	// 기존에 작성한 내용 수정해서 저장
 	public Product saveProduct(Product product) {
 		return productRepository.save(product);
 	}
 	//삭제하는 메서드
-	public void deleteProductById(Long id) {
-		productRepository.deleteById(id);
+	 public void deleteProductById(Long id) {
+	        productRepository.deleteById(id);
 	}
 }	
 
