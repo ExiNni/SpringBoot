@@ -1,9 +1,0 @@
-package com.kh.springdb.mapper;
-
-public class BoardMapper {
-
-	@Mapper
-	public interface BoardMapper{
-		List<Board> getAllBoards();
-	}
-}

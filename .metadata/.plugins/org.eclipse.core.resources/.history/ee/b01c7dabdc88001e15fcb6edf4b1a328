@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<mapper>
-	<!-- id값에다가 전달해줄 메서드를 지정해줌
-	 -->
-	<select id="" resultType="">
-		SELECT * FROM products
-	</select>
-</mapper>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="EUC-KR">
+		<title>Cafe Form</title>
+	</head>
+	
+	<body>
+		<form th:action="@{/cafe/save}" th:object="${cafe}" method="post">
+			<input type="hidden" th:field="*{cafe_id}"/>
+			
+			<label>Name</label>
+			<input type="text" th:field="*{name}"/><br>
+			
+			<label>Location</label>
+			<input type="text" th:field="*{location}"/><br>
+			
+			<label>Operating Hour</label>
+			<input type="text" th:field="*{operating_hour}"/><br>
+			<button type="submit">Save Board</button>
+		</form>
+		<a href="@{/cafe}">돌아가기</a>
+	</body>
+
+</html>
