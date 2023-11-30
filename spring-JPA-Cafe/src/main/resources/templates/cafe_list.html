@@ -15,7 +15,10 @@
 					alert("게시물 삭제를 취소했습니다");
 				}
 			}
-		</script>
+			
+	</script>
+		
+		
 	
 	<body>
 		<h2>Cafe List</h2>
@@ -31,20 +34,31 @@
 					<th>삭제하기</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr th:each="c : ${cafe}">
-					<td th:text="${c.cafe_id}"></td>
-					<td th:text="${c.name}"></td>
-					<td th:text="${c.location}"></td>
-					<td th:text="${c.operating_hour}"></td>
-					<td><a th:href="@{/cafe/detail/{id}(id=${c.cafe_id})}">상세보기</a></td>
-					<td><a th:href="@{/cafe/update/{id}(id=${c.cafe_id})}">수정하기</a></td>
-					<td><a th:href="@{/cafe/delete/{id}(id=${c.cafe_id})}">삭제하기</a></td>
-
-				</tr>
-			</tbody>
+			 <tbody>
+            <tr th:if="${#lists.isEmpty(cafe)}">
+                <td colspan="7" th:onclick="showNoResultsAlert()">검색 결과가 없습니다. (클릭하여 확인)</td>
+            </tr>
+            <tr th:each="c : ${cafe}" th:if="${not #lists.isEmpty(cafe)}">
+                <td th:text="${c.cafe_id}"></td>
+                <td th:text="${c.name}"></td>
+                <td th:text="${c.location}"></td>
+                <td th:text="${c.operating_hour}"></td>
+                <td><a th:href="@{/cafe/detail/{id}(id=${c.cafe_id})}">상세보기</a></td>
+                <td><a th:href="@{/cafe/update/{id}(id=${c.cafe_id})}">수정하기</a></td>
+                <td><a th:href="@{/cafe/delete/{id}(id=${c.cafe_id})}">삭제하기</a></td>
+            </tr>
+        </tbody>
 		</table>
 		<a th:href="@{/cafe/new}">추가하기</a>
+		<form th:action="@{/cafe}" method="get">
+			<label>Search Cafe:</label>
+			<input type="text" id="search" name="name"/>
+			<button type="submit">검색하기</button>
+		</form>
+		
+		<table border="1">
+			<tr th:each="cafe : ${cafe}"></tr>
+		</table>
 		<!--<a th:href="@{/board/delete/all}">전체 삭제</a>-->
 		<a href="#" th:onclick="checkDelete()">전체 삭제</a>
 	</body>	

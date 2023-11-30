@@ -10,17 +10,25 @@
 		<form th:action="@{/cafe/save}" th:object="${cafe}" method="post">
 			<input type="hidden" th:field="*{cafe_id}"/>
 			
-			<label>Name</label>
-			<input type="text" th:field="*{name}"/><br>
+			<label for="name">Name</label>
+			<input type="text" id="name" th:field="*{name}"/><br>
 			
-			<label>Location</label>
-			<input type="text" th:field="*{location}"/><br>
+			<label for="location">Location</label>
+			<input type="text" id="location" th:field="*{location}"/><br>
 			
-			<label>Operating Hour</label>
-			<input type="text" th:field="*{operating_hour}"/><br>
+			<label for="o_h">Operating Hour</label>
+			<input type="text" id="o_h" th:field="*{operating_hour}"/><br>
 			<button type="submit">Save Board</button>
 		</form>
 		<a href="@{/cafe}">돌아가기</a>
 	</body>
 
 </html>
+
+<!--
+	method="post" -> DB에 넣어주기 위해서 작성하는 field
+	th:text="${}" -> text DB에서 가져온 내용을 사용자한테 보여주기 위해서 작성하는 text
+	
+	text: DB에서 있는 내용을 사용자한테 보여주기 위해 작성하는 곳
+	field: 사용자가 작성한 내용을 DB에 넣기 위해서 작성하는 곳
+ -->

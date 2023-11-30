@@ -39,8 +39,9 @@ public class CafeService {
 		cafeRepository.deleteAll();
 	}
 	
-	public List<Cafe> findCafe(String keyword){
-		return cafeRepository.findCafe(keyword);
-	}
+	public List<Cafe> findCafe(String keyword) {
+        List<Cafe> cafes = cafeRepository.findCafe(keyword);
+        return cafes.isEmpty() ? getAllCafes() : cafes;
+    }
 	
 }
