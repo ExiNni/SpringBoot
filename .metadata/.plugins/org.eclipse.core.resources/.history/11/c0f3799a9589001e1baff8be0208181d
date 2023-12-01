@@ -1,8 +1,0 @@
-package com.kh.springdb.model;
-
-public class User {
-	int mno;
-	String mname;
-	String memail;
-	Date mBirth;
-}

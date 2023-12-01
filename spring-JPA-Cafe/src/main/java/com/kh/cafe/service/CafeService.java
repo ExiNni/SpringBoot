@@ -44,4 +44,13 @@ public class CafeService {
         return cafes.isEmpty() ? getAllCafes() : cafes;
     }
 	
+	// repository에 작성한 지역카운터를 가져와서 이용할 수 있는 메서드를 추가
+	public int countCafeByLocation(String location) {
+		return cafeRepository.countByLocation(location);
+	}
+	
+	// 카페가 존재하는지 존재 여부
+	public boolean existsCafeByName(String name) {
+		return cafeRepository.existsByName(name);
+	}
 }

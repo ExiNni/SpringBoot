@@ -8,9 +8,14 @@ import org.springframework.data.repository.query.Param;
 
 import com.kh.cafe.vo.Cafe;
 
-import jakarta.persistence.Column;
-
 public interface CafeRepository extends JpaRepository<Cafe, Long> {
+	// 카페가 존재하는지 존재여부 (boolean)
+	boolean existsByName(String name);
+	
+	// count를 이용해서 지역의 갯수가 몇 개인지 찾아보는 메서드
+	int countByLocation(String location);
+	
+	// 특정 문자열을 포함한 엔터티를 검색하는데 사용하는 메서드
 	List<Cafe>findByNameContaining(String keyword);
 	@Query("SELECT c FROM Cafe c WHERE c.name LIKE %:keyword%")
 	// 1. 만약에 보여줄 것이 많다. => List 로 담아서 한 번에 보여주기
@@ -65,3 +70,40 @@ public interface CafeRepository extends JpaRepository<Cafe, Long> {
 	deleteByLocation(String Location)
 	=> DELETE FROM Cafe WHERE location = ?
  */
+
+/*
+ 	Query -> AND OR IS Equals Between After Before Like OrderBy In False True IgnoreCase
+ 	
+ 	1. JPA에서 SQL AND 구문을 써야할 때
+ 	   findBy 변수명 AND 다른 변수명 
+ 	   
+ 	2. JPA에서 SQL OR 구문을 써야할 때
+ 	   findBy변수명OR다른변수명
+ 	   
+ 	3. JPA에서 SQL IS 또는 Equals 구문을 써야할 때
+ 	   findBy변수명IS
+ 	   findBy변수명Equals
+ 	   
+ 	4. JPA에서 SQL Between After Before Like 구문을 써야할 때
+ 	   findByBetween
+ 	   findByAfter
+ 	   findByBefore
+ 	   findByLike
+ 	
+ 	5. JPA에서 SQL OrderBy 구문을 써야할 때 
+ 	   findBy변수명OrderBy 정렬하고자 하는 기준 변수명 DESC
+ 	   
+ 	6. JPA에서 SQL In 구문을 써야할 때
+ 	   findBy변수명In(List <예약어> 변수명)
+ 	   
+ 	7. JPA에서 SQL False True 구문을 써야 할 때
+ 	   findBy변수명True()
+ 	   findBy변수명False()
+ 	   SQL : WHERE 테이블명의 단축어.변수명(SQL 테이블명) = true
+ 	   SQL : WHERE 테이블명의 단축어.변수명(SQL 테이블명) = false
+ 	
+ 	8. JPA에서 SQL IgnoreCase 구문을 써야할 때
+ 	   findBy변수명IgnoreCase 
+ 	   
+ */
+ 

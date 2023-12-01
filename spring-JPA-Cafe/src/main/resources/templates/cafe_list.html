@@ -43,6 +43,7 @@
                 <td th:text="${c.name}"></td>
                 <td th:text="${c.location}"></td>
                 <td th:text="${c.operating_hour}"></td>
+                <td><a th:href="@{/cafe/count(location=${c.location})}">카페 개수</a></td>
                 <td><a th:href="@{/cafe/detail/{id}(id=${c.cafe_id})}">상세보기</a></td>
                 <td><a th:href="@{/cafe/update/{id}(id=${c.cafe_id})}">수정하기</a></td>
                 <td><a th:href="@{/cafe/delete/{id}(id=${c.cafe_id})}">삭제하기</a></td>

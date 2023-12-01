@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="EUC-KR">
+		<title>Cafe Count</title>
+	</head>
+	
+	<body>
+		<h2 th:text="${location}"></h2>
+		<p th:text="'Location: ' + ${location}"></p>
+		<p th:text="'Cafe Count: ' + ${cafeCount}"></p>
+		<a th:href="@{/cafe}">돌아가기</a>
+	</body>
+
+</html>
+
+<!-- 
+	field 는 작성하는 공간
+	text 는 가져오는 공간
+-->
