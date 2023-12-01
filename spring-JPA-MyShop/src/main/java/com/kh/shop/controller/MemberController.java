@@ -1,5 +1,6 @@
 package com.kh.shop.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,8 @@ import com.kh.shop.vo.Member;
 @RequestMapping("/members")
 @Controller
 public class MemberController {
-	private final MemberService memberService;
+	@Autowired
+	private MemberService memberService;
 	
 	// 회원가입하고 회원가입 결과 @GetMapping 과 @PostMapping
 	@GetMapping("/new")

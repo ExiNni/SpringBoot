@@ -1,5 +1,6 @@
 package com.kh.shop.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.shop.repository.MemberRepository;
@@ -7,8 +8,8 @@ import com.kh.shop.vo.Member;
 
 @Service
 public class MemberService{
-	
-	private final MemberRepository memberRepository;
+	@Autowired
+	private MemberRepository memberRepository;
 	
 	// 1. 회원가입 메서드 
 	public Member saveMember(Member member) {
