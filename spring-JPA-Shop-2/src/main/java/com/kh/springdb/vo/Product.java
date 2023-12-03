@@ -1,31 +1,25 @@
 package com.kh.springdb.vo;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id; // 관계형 sql
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@Getter
-@Setter
-@Table(name="Products")
+@Table(name="ProductList")
+@Getter @Setter
 public class Product {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="product_id")
-	private Long product_id;
-	@Column(nullable = false, length=50)
+	@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="productId_Seq")
+	@SequenceGenerator(name = "productId_Seq", sequenceName = "productId_Seq",allocationSize = 1)
+	private Long id;
 	private String product_name;
-	@Column(nullable = false, length=50)
 	private String category;
-	@Column(name="price")
-	private double price;
-	private Integer stock_quantity;
+	private String price;
+	private String stock_quantity;
+	private String description;
+	
 }
 
 
