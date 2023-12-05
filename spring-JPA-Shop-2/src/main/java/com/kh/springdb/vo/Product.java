@@ -61,6 +61,20 @@ public class Product {
 								 public class School{
 								 	
 								 }
+								 
+	@RequiredArgsConstructor: 이 어노테이션이 적용된 클래스는 필수로 초기화 해야하는 final 필드나 @NotNull로 표시된 필드를 생성자를 자동으로 생성
+							  예제 코드: @RequiredArgsConstructor
+							  		   public class Student{
+							  		   		private final String name;
+							  		   		private final int grade;
+							  		   		private String address;
+							  		   }
+							  		   
+							  		   name 과 grade는 생성자에 포함되지만
+							  		   address는 생성자에 포함되지 않음
+							  		   나중에 Student 객체를 다른데서 불러올 때
+							  		   Student st = new Student("이름", 5); // 이름과 학년은 필수지만 address는 넣어주지 않음
+							  		   
 	
 	JPA 어노테이션
 	@Prepersist: 엔터티가 DB에 저장되기 전에 호출되는 메서드를 지정 엔터티에 필요한 사전 처리 작업을 수행하는데 많이 사용
@@ -85,4 +99,6 @@ public class Product {
 				 		this.createDate = LocalDate.now();
 				 	}
 				 }
+				 
+	
  */
