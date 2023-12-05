@@ -1,49 +1,77 @@
 package com.kh.oracleDB.mallBoard.model.vo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
 @Setter
+@Getter
 @Entity
 public class Item {
-	// primary key
-	private int id;
-	// 상품 이름
-	private String name;
-	//상품 설명
-	private String description;
-	//상품 가격
-	private int price;
-	//판매 개수
-	private int count;
-	//재고 
-	private int stockQuantity;
-	//상품 상태 (판매중인지 품절인지 체크해주는 필드)
-	private boolean isSale;
-	// 상품을 판매하는 판매자가 여러명일 수 있으므로 판매자가 누구인지 아이디를 넣어줘야함
-	//판매자 아이디(admin), 상품 사진
-	@ManyToOne // 판매자 한명이 여러개의 상품을 팔 수 있기 때문에 판매자 1 : 상품 N
-	@JoinColumn(name="admin_id")
-	private User admin;
-	// 상품 사진
-	private String photo;
-	// 상품명
-	private String photoName; 
-	// 상품 이미지 위치
-	private String photoPath;
-	
-	
-	
-	private List<CartItem> cart_items = new ArrayList<>();
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="item_seq")
+	@SequenceGenerator(name = "item_seq", sequenceName="item_seq",allocationSize=1)
+    private int id;
+
+    private String name;
+
+    private String text; // 물건에 대한 상세설명
+
+    private int price; // 가격
+
+    private int count; // 판매 개수
+
+    private int stock; // 재고
+
+    private int isSoldout; // 상품 상태 (0 : 판매중 / 1 : 품절)
+    
+    UUID uuid = UUID.randomUUID();
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "seller_id")
+    private User seller; // 판매자 아이디
+
+    @OneToMany(mappedBy = "item")
+    private List<CartItem> cartItems = new ArrayList<>();
+
+    //@OneToMany(mappedBy = "item")
+    //private List<OrderItem> orderItems = new ArrayList<>();
+
+    //@OneToMany(mappedBy = "item")
+    //private List<SaleItem> saleItems = new ArrayList<>();
+
+    private String imgName; // 이미지 파일명
+
+    private String imgPath; // 이미지 조회 경로
+
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private LocalDate createDate; // 상품 등록 날짜
+
+    @PrePersist // DB에 INSERT 되기 직전에 실행. 즉 DB에 값을 넣으면 자동으로 실행됨
+    public void createDate() {
+        this.createDate = LocalDate.now();
+    }
+
 }
