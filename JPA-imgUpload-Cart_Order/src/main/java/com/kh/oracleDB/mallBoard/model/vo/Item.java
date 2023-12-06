@@ -47,8 +47,6 @@ public class Item {
 
     private int isSoldout; // 상품 상태 (0 : 판매중 / 1 : 품절)
     
-    UUID uuid = UUID.randomUUID();
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "seller_id")
     private User seller; // 판매자 아이디

@@ -23,8 +23,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "ORDERS")
-public class Order {
+public class Orders {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="order_seq")
@@ -35,7 +34,7 @@ public class Order {
   @JoinColumn(name = "user_id")
   private User user; // 구매자
 
-  @OneToMany(mappedBy = "order")
+  @OneToMany(mappedBy = "orders")
   private List<OrderItem> orderItems = new ArrayList<>();
 
   @DateTimeFormat(pattern = "yyyy-mm-dd")
@@ -48,24 +47,24 @@ public class Order {
 
   public void addOrderItem(OrderItem orderItem) {
       orderItems.add(orderItem);
-      orderItem.setOrder(this);
+      orderItem.setOrders(this);
   }
 
-  public static Order createOrder(User user, List<OrderItem> orderItemList) {
-      Order order = new Order();
-      order.setUser(user);
+  public static Orders createOrder(User user, List<OrderItem> orderItemList) {
+      Orders orders = new Orders();
+      orders.setUser(user);
       for (OrderItem orderItem : orderItemList) {
-          order.addOrderItem(orderItem);
+    	  orders.addOrderItem(orderItem);
       }
-      order.setCreateDate(order.createDate);
-      return order;
+      orders.setCreateDate(orders.createDate);
+      return orders;
   }
 
-  public static Order createOrder(User user) {
-      Order order = new Order();
-      order.setUser(user);
-      order.setCreateDate(order.createDate);
-      return order;
+  public static Orders createOrder(User user) {
+      Orders orders = new Orders();
+      orders.setUser(user);
+      orders.setCreateDate(orders.createDate);
+      return orders;
   }
 
 }
