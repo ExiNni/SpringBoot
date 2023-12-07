@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>장바구니</title>
+		<style>
+			h1 {
+				text-align: center;
+			}
+			img {
+				width: 100px;
+				height: 100px;
+			}
+			.cart-container {
+				display: flex;
+				justify-content: center;
+			}
+			.text {
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>장바구니</h1>
+		<div th:if="${cart != null}">
+		<div class="cart-container">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>상품명</th>
+					<th>가격</th>
+					<th>수량</th>
+					<th>합계</th>
+					<th>사진</th>
+				</tr>
+			</thead>
+			
+			<tbody th:each="cartItem : ${cart.cartItems}">
+				<tr>
+					<!-- CartItem에 있는 객체에서 item에 있는 name 속성을 나타냄 
+					public class CartItem {
+						private Item item;
+					}
+					CartItem에 포함해서 작성해준 필드 Item에 들어가 
+					public class Item{
+						private String name;
+						private String price;
+						로 지정해준 값을 가지고 옴 
+						
+					}
+					-->
+				
+				<td th:text="${cartItem.item.name}"></td>
+				<td th:text="${cartItem.item.price}"></td>
+				<td th:text="${cartItem.count}"></td>
+				<td th:text="${cartItem.item.price} * ${cartItem.count}"></td>
+				<td><img th:src="@{${cartItem.item.getImgPath()}}"/></td>
+				
+				</tr>
+			</tbody>
+		</table>
+		</div>	
+		
+		<div class="text">
+		<p>총 가격 : <span th:text="${cart.totalAmount}"></span></p>
+		<p>총 수량 : <span th:text="${cart.totalCount}"></span></p>
+		<div th:if="${param.checkoutStatus == 'success'}">
+			<p>결제가 완료 되었습니다.</p>
+		</div>
+		
+		<div th:if="${param.checkoutStatus == 'error'}">
+			<p>장바구니가 비어있습니다.</p>
+		</div>
+		
+		<form action="/cart/checkout" method="post">
+    		<button type="submit" onclick="checkCartStatus()">결제하기</button>
+		</form>
+		</div>
+	</div>
+		
+		<div th:unless="${cart != null}">
+			<p>카트에 담긴 제품이 없습니다.</p>
+		</div>
+		
+		
+		<script th:inline="javascript">
+		    function checkCartStatus() {
+		        var cartExists = false;
+		
+		        if (cartExists) {
+		            alert('결제 완료되었습니다.');
+		        } else {
+		            alert('장바구니가 비었습니다.');
+		        }
+		    }
+	</script>
+	</body>
+</html>
+
+<!-- 
+1. clear가 되지 않는다면 delete를 이용해서 장바구니 비우기
+2. db table 세팅 확인하기
+3. order에서 에러가 난다면 entity name 설정을 해야지 설정 가능
+4. redirect로 flash 설정이 되지 않는다면 @PathVariable, @RequestParam 사용해서 redirct 해주기.
+-->

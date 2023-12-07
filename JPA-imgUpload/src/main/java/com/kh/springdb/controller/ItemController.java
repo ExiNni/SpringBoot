@@ -45,7 +45,7 @@ public class ItemController {
 	@PostMapping("/item/new")
 	public String itemSave(Item item, MultipartFile imgFile) throws IllegalStateException, IOException {
 		itemService.saveItem(item, imgFile);
-		return "redirect:/";
+		return "redirect:/item/list";
 	}
 	
 	// 아이템 상세보기 메서드
