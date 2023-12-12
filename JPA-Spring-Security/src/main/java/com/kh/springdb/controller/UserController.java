@@ -27,7 +27,7 @@ public class UserController {
 	//회원가입을 진행할 때 값이 존재하는지 원하는 조건에 맞는지 확인 후 전달
 	@PostMapping("/signUp")
 	public String signUp(@Valid UserCheckForm usercheckform, BindingResult bindingResult) {
-		//1. 비밀번호와 비밀번호 확인이 일치하지 않을 때
+		//1. 비밀번호와 비밀번호 확인이 일치하지 	않을 때
 		//bindingResult.rejectValue(a,b,c)
 		// a = 검증을 실패한 필드의 이름을 나타냄 
 		//밑에서는 password2가 검증에 실패했음을 의미함
