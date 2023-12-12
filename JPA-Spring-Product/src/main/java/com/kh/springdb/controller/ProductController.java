@@ -3,6 +3,8 @@ package com.kh.springdb.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.swing.text.AbstractDocument.Content;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.springdb.model.Product;
+import com.kh.springdb.service.CommentService;
 import com.kh.springdb.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductController {
 	private final ProductService productService;
+	private final CommentService commentService;
 	
 	@GetMapping("/")
 	public String mainPageView(Model model) {
@@ -65,5 +69,12 @@ public class ProductController {
 	public String productDetail(@PathVariable() int id, Model model) {
 		model.addAttribute("product", productService.getProductById(id));
 		return "productDetail";
+	}
+	
+	// 댓글 작성하기 위한 postMapping
+	@PostMapping("/addComment")
+	public String addComment(@RequestParam Long productId, @RequestParam String commentContent) {
+		commentService.addComment(productId, commentContent);
+		return "redirect:/product/detail/" + productId;
 	}
 }	

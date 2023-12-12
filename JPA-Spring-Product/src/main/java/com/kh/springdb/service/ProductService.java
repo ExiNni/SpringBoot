@@ -2,11 +2,14 @@ package com.kh.springdb.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,11 +29,9 @@ private final ProductRepository productRepository;
 	}
 	
 	// pagination add
-	public Page<Product> getList(int page){
-							// page 페이지 값, 1 = 페이지당 보여줄 목록 개수
-		Pageable pageable = PageRequest.of(page, 1);
-		
-		return productRepository.findAll(pageable);
+	public Page<Product> getList(int page) {
+	    Pageable pageable = PageRequest.of(page, 1, Sort.by("createDate"));
+	    return productRepository.findAll(pageable);
 	}
 
 	//상품을 등록할 수 있는 메서드

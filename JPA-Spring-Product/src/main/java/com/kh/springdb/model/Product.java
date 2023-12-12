@@ -1,14 +1,17 @@
 package com.kh.springdb.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
@@ -27,7 +30,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="product_seq")
 	@SequenceGenerator(name="product_seq", sequenceName="product_seq", allocationSize=1)
-	private int id;
+	private Long id;
 	
 	private String name;
 	private String text;
@@ -35,6 +38,10 @@ public class Product {
 	private int count;
 	private int stock;
 	private int isSoldOut;
+	
+	// 댓글 작성을 위한 Comment
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+	private List<Comment> comments;
 	
 	@Column(nullable=true)
 	private String imgName;
