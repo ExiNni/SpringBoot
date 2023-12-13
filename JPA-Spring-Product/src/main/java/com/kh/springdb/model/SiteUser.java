@@ -18,37 +18,39 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Getter
-//@Setter
-//@Entity
-//public class User {
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="users_seq")
-//	@SequenceGenerator(name="users_seq", sequenceName="users_seq", allocationSize=1)
-//	private int id;
-//	
-//	@Column(unique=true)
-//	private String userName;
-//	
-//	private String password;
-//	private String name;
-//	private String email;
-//	private String address;
-//	private String phone;
-//	private String role; 
-//	
-//	private int coin;
-//	
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
+public class SiteUser {
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="users_seq")
+	@SequenceGenerator(name="users_seq", sequenceName="users_seq", allocationSize=1)
+	private Long id;
+	
+	@Column(unique=true)
+	private String userName;
+	
+	@Column(unique=true)
+	private String email;
+	
+	private String password;
+	
+	
+	
+	// 추천인을 넣고 싶다면 추천자를 생성해서 넣어도 됨
+	
+	
+	
 //	private List<Item> items = new ArrayList<>();
 	
-	// 판매자가 판매한 내역 > Sale 생성 후 주석 해제
+	 //판매자가 판매한 내역 > Sale 생성 후 주석 해제
 //	@OneToMany(mappedBy = "seller")
 //	private List<Sale> sellerSale;
 	
-	// 판매자가 판매한 상품들 > SaleItem 생성 후 주석 해제
+	//판매자가 판매한 상품들 > SaleItem 생성 후 주석 해제
 //	@OneToMany(mappedBy = "seller")
 //	private List<SaleItem> sellerSaelItem = new ArrayList<>();
 	
@@ -56,5 +58,5 @@ import lombok.Setter;
 	
 	//구매자 주문 리스트
 	
-//	구매자가 사고싶은 내역의 장바구니*/
-//}
+	//구매자가 사고싶은 내역의 장바구니
+}

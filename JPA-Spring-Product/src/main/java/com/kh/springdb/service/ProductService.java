@@ -30,8 +30,8 @@ private final ProductRepository productRepository;
 	
 	// pagination add
 	public Page<Product> getList(int page) {
-	    Pageable pageable = PageRequest.of(page, 1, Sort.by("createDate"));
-	    return productRepository.findAll(pageable);
+		Pageable pageable = PageRequest.of(page, 1, Sort.by(Sort.Direction.DESC, "id"));
+		return productRepository.findAll(pageable);
 	}
 
 	//상품을 등록할 수 있는 메서드
