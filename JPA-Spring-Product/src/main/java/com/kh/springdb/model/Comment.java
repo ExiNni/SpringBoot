@@ -18,7 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "Products")
+@Table(name = "Comments")
 public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comments_seq")
@@ -30,6 +30,8 @@ public class Comment {
 	private Product product;
 	
 	private String content;
+	
+	private String name;
 	
 	// 댓글에 좋아요를 누르고 싶다면 댓글 객체로 와서 추천에 관련된 필드를 설정해주면 됨
 	

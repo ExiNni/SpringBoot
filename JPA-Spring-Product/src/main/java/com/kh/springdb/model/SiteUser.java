@@ -1,16 +1,12 @@
 package com.kh.springdb.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,6 +33,9 @@ public class SiteUser {
 	private String email;
 	
 	private String password;
+	
+	@Enumerated(EnumType.STRING)
+	private UserRole isRole;
 	
 	
 	

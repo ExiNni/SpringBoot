@@ -15,7 +15,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	// 오후에 작성할 페이지네이션 메서드
 	Page<Product> findAll(Pageable pageable);
 
-	Optional<Product> findById(Long productId);
+	Optional<Product> findById(int productId);
 	
 	
 }

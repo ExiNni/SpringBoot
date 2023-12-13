@@ -57,5 +57,9 @@ public class Product {
 	}
 	
 	// 제품에 대한 좋아요를 받고 싶다면 여기에 추천과 관련된 변수를 넣어줘도 됨
+	//private int like; // 좋아요를 받는 방법은 여러 방법이 있음
+	// 1. 사용자 관계없이 카운트만 올라가게 하기
+	
+	// 2. ManyToOne이나 OneToMany 이용해서 서로 카운트 주기
 	
 }

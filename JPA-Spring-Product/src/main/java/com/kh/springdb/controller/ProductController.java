@@ -77,4 +77,17 @@ public class ProductController {
 		commentService.addComment(productId, commentContent);
 		return "redirect:/product/detail/" + productId;
 	}
+	
+	 @PostMapping("/deleteComment/{commentId}")
+	    public String deleteComment(@PathVariable Long commentId, @RequestParam Long productId) {
+	        commentService.deleteComment(commentId);
+	        return "redirect:/product/detail/" + productId;
+	    }
+	 
+//	 @PostMapping()
+//	 public String likeProduct() {
+//		 	productService.likeProduct(0);
+//		 	return "redirect:/list";
+//		 }
+	 
 }	
