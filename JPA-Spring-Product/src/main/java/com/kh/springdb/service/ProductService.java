@@ -30,7 +30,7 @@ private final ProductRepository productRepository;
 	
 	// pagination add
 	public Page<Product> getList(int page) {
-		Pageable pageable = PageRequest.of(page, 1, Sort.by(Sort.Direction.DESC, "id"));
+		Pageable pageable = PageRequest.of(page, 4, Sort.by(Sort.Direction.DESC, "id"));
 		return productRepository.findAll(pageable);
 	}
 
